@@ -32,6 +32,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.time.LocalDate;
@@ -337,7 +338,7 @@ public class SchoolReportServiceImpl_ implements ISchoolReportService {
             int size = 50;
 
             BitMatrix bitMatrix = generateMatrix(data, size);
-            final File temp = File.createTempFile("temp-file-name", ".tmp");
+            final File temp = Files.createTempFile("temp-file-name", ".tmp").toFile();
             String imageFormat = "png";
             String absolutePath = temp.getAbsolutePath();
             String tempFilePath = absolutePath.substring(0, absolutePath.lastIndexOf(File.separator));
